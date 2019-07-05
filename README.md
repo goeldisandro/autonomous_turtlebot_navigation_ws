@@ -1,5 +1,5 @@
 # autonomous_turtlebot_navigation
-Autonomous Turtlebot Navigation with: Turtlebot, RPLidar, BeagleBone Blue, UP Squared
+Autonomous Turtlebot Navigation with: Turtlebot (drive and odom), RPLidar(laserscan), BeagleBone Blue(IMU), UP Squared(Processing Unit)
 
 # Needs
 Ubuntu 16.04 \
