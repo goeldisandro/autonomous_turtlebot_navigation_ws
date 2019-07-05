@@ -1,0 +1,12 @@
+obstacle_range: 10 #nur Hindernisse die naeher als diese Grenze(von der Base) sind werden in die map aufgenommen
+raytrace_range: 10.0  # bis zu dieser Laenge wird der Roboter versuchen den Raum als frei zu erkennen
+#footprint: ((x0, y0), (x1, y1), ... (xn, yn)) für viereckige Roboter
+robot_radius: 0.3 #Radius des Roboters (Kobuki = 0.18 m)
+inflation_radius: 0.2  #Abstand den der Roboter zu Hindernisse einhalten soll
+
+observation_sources: laser_scan_sensor
+
+laser_scan_sensor: {sensor_frame: laser, data_type: LaserScan, topic: scan, marking: true, clearing: true}  # Daten des RPLidars   marking = add obstacles to the map clearing = clear obstacles from the costmap
+expected_update_rate: 10  #Control loop missed its desired rate of 20.0000Hz <- nicht behoben - mit Prozessorauslastung verbunden
+
+

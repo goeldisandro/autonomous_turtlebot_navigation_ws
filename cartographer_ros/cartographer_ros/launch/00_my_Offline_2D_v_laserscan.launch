@@ -1,0 +1,68 @@
+<launch>
+
+  <arg name="no_rviz" default="false"/>
+  <param name="/use_sim_time" value="true" />
+
+  <group unless="$(arg no_rviz)">
+    <node name="rviz" pkg="rviz" type="rviz" required="true"
+        args="-d $(find cartographer_ros)/configuration_files/my_robot.rviz" />
+
+    <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+        type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+  </group>
+
+
+
+<!-- Cartographer -->
+  <node name="cartographer_offline_node" pkg="cartographer_ros"
+      required="$(arg no_rviz)"
+      type="cartographer_offline_node" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basenames 00_Kobuki_v_laserscan.lua 
+  	  -urdf_filenames $(find cartographer_ros)/urdf/00_Kobuki_v_laserscan.urdf 
+          -bag_filenames $(arg bag_filenames)"
+      output="screen">
+    <remap from="points2" to="velodyne_points" />
+ </node>
+
+
+
+    <!-- run laserscan_to_pointcloud node -->
+  <arg name="use_nodelet" default="true"/>
+  <arg name="nodelet_manager" default="velodyne_nodelet_manager"/>
+
+  <arg name="cloud_in" default="/velodyne_points"/>
+  <arg name="scan_out" default="/scan_navigation"/>
+
+  <arg name="min_height" default="-0.2"/>
+  <arg name="max_height" default="0.5"/>
+  <arg name="scan_time" default="0.05"/>
+  <arg name="range_max" default="10"/>
+  <arg name="angle_max" default="3.14159"/>
+  <arg name="angle_min" default="-3.14159"/>
+
+  <node if="$(arg use_nodelet)" name="pointcloud_to_navigation_laserscan" pkg="nodelet" type="nodelet"
+        args="load pointcloud_to_laserscan/pointcloud_to_laserscan_nodelet $(arg nodelet_manager)">
+    <remap from="cloud_in" to="$(arg cloud_in)"/>
+    <remap from="scan" to="$(arg scan_out)"/>
+    <param name="min_height" value="$(arg min_height)"/>
+    <param name="max_height" value="$(arg max_height)"/>
+    <param name="scan_time" value="$(arg scan_time)"/>
+    <param name="range_max" value="$(arg range_max)"/>
+    <param name="angle_max" value="$(arg angle_max)"/>
+    <param name="angle_min" value="$(arg angle_min)"/>
+  </node>
+
+  <node unless="$(arg use_nodelet)" name="pointcloud_to_navigation_laserscan" pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node">
+    <remap from="cloud_in" to="$(arg cloud_in)"/>
+    <remap from="scan" to="$(arg scan_out)"/>
+    <param name="min_height" value="$(arg min_height)"/>
+    <param name="max_height" value="$(arg max_height)"/>
+    <param name="scan_time" value="$(arg scan_time)"/>
+    <param name="range_max" value="$(arg range_max)"/>
+    <param name="angle_max" value="$(arg angle_max)"/>
+    <param name="angle_min" value="$(arg angle_min)"/>
+  </node>
+
+
+</launch>
