@@ -21,7 +21,7 @@ options = {
   odom_frame = "odom", 
   provide_odom_frame = true,  
 
-  publish_frame_projected_to_2d = false,  
+  publish_frame_projected_to_2d = true,  
 
   use_odometry = true,  
 
@@ -102,9 +102,9 @@ POSE_GRAPH.constraint_builder.sampling_ratio = 0.03
 POSE_GRAPH.optimization_problem.ceres_solver_options.max_num_iterations = 100 
 
 POSE_GRAPH.constraint_builder.min_score =0.4
+--0.4
 
-
-POSE_GRAPH.constraint_builder.global_localization_min_score = 0.7
+POSE_GRAPH.constraint_builder.global_localization_min_score = 0.4 --0.7
 
   
 

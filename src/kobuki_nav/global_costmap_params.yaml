@@ -1,8 +1,27 @@
 global_costmap:
+#https://answers.ros.org/question/12194/initializing-a-costmap_2d-with-a-static_map/
+  #publish_voxel_map: true  #aus Vorlage kopiert
   global_frame: /map   #definiert wo global costmap laufen soll
-  robot_base_frame: base_link  #wohinn der costmap referenzieren soll
-  update_frequency: 1.0
+  robot_base_frame: /base_link  #wohinn der costmap referenzieren soll
+  update_frequency: 0.2
+  publish_frequency: 0.2
   static_map: true   #ob sich der global costmap auf die vom map Server zur verfügung gestellte Map initailisieren soll
- #width:40.0
-#height: 40.0
+#  rolling_window: false #following robot while navigation
+# width: 40.0
+# height: 40.0
   resolution: 1.0
+  always_send_full_costmap: true
+  lethal_cost_treshold: 0
+  obstacle_range: 5
+  max_obstacle_height: 3.0 #leicht höher als Roboter
+  raytracing_range: 3.0 #default
+  cost_scaling_factor: 10.0 #default
+  
+  plugins:
+    - {name: inflation_layer,        type: "costmap_2d::InflationLayer"}
+    - {name: obstacle_layer,         type: "costmap_2d::ObstacleLayer"}
+    - {name: static,                 type: "costmap_2d::StaticLayer"}  
+
+  transform_tolerance: 1.0
+
+
