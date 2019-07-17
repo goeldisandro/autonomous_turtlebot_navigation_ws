@@ -1,0 +1,40 @@
+<launch>
+
+<param name="/use_sim_time" value="false"/>
+
+
+<!-- RPlidar starten #################################################################### -->
+
+  <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
+  <param name="serial_port"         type="string" value="/dev/ttyUSB1"/>
+  <param name="serial_baudrate"     type="int"    value="115200"/>
+  <param name="frame_id"            type="string" value="rp_link"/>
+  <param name="inverted"            type="bool"   value="false"/>
+  <param name="angle_compensate"    type="bool"   value="true"/>
+  </node> 
+
+
+<!-- Turtlebot  bringup ################################################################## -->
+<include file =  "$(find turtlebot_bringup)/launch/minimal.launch"/>
+  
+<!-- move base node  ########################################################################## 
+local_costmap params macht keine Probleme mehr -> Kommentare aus .yaml file geloescht -->
+  <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
+    <param name="base_global_planner" value="carrot_planner/CarrotPlanner"/>
+  <param name="robot_description"
+    textfile="$(find cartographer_ros)/urdf/00_Kobuki_rp.urdf" />
+
+   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+   <rosparam file="$(find kobuki_nav)/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+   <rosparam file="$(find kobuki_nav)/costmap_common_params.yaml" command="load" ns="local_costmap" />
+   <rosparam file = "$(find kobuki_nav)/local_costmap_params.yaml" command="load" />
+   <rosparam file="$(find kobuki_nav)/dwa_local_planner_params.yaml" command="load" />
+   <rosparam file="$(find kobuki_nav)/global_costmap_params.yaml" command="load" /> 
+   <rosparam file="$(find kobuki_nav)/base_local_planner_params.yaml" command="load" /> 
+   </node>
+
+
+  <!---->
+
+</launch>
+
