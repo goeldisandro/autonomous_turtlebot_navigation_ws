@@ -9,8 +9,8 @@ https://wiki.ntb.ch/stud/2019_ba_tbosser_sgoeldi/start
 
 # installation
 go to home directory \
-git clone https://github.com/goeldisandro/autonomous_turtlebot_navigation.git \
-cd autonomous_turtlebot_navigation \
+git clone https://github.com/goeldisandro/autonomous_turtlebot_navigation_ws.git \
+cd autonomous_turtlebot_navigation_ws \
 catkin build \
 src devel/setup.bash 
 
