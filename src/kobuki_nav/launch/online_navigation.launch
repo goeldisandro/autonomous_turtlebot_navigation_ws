@@ -21,6 +21,11 @@
 
 
 
+<!-- eigene tf_broadcaster/listener einbinden############################################## 
+<node name="tf_broadcaster_base" pkg="robot_setup_tf" type="tf_broadcaster_base" /> --> 
+
+
+
 <!-- Turtlebot  bringup ################################################################## -->
 <include file =  "$(find turtlebot_bringup)/launch/minimal.launch"/>
 
@@ -54,6 +59,11 @@
    <rosparam file = "$(find kobuki_nav)/map_nav_params/local_costmap_params.yaml" command="load" />
    
    <rosparam file="$(find kobuki_nav)/move_base_params.yaml" command="load" /> <!--contains planner choice and parameters -->
+
+
+
+   </node>
+
 
   
 </launch>

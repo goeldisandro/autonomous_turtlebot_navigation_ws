@@ -71,17 +71,16 @@ TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true
 TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.linear_search_window = 0.1 --optimiert
 
 
-TRAJECTORY_BUILDER_2D.ceres_scan_matcher.translation_weight = 5000 --0.005 optimiert
+TRAJECTORY_BUILDER_2D.ceres_scan_matcher.translation_weight = 10 --optimiert
 TRAJECTORY_BUILDER_2D.ceres_scan_matcher.rotation_weight = 1000 --optimiert
 TRAJECTORY_BUILDER_2D.motion_filter.max_time_seconds = 0.1 -- optimiert
-TRAJECTORY_BUILDER_2D.motion_filter.max_distance_meters =1  --optimiert
-TRAJECTORY_BUILDER_2D.motion_filter.max_angle_radians = math.rad(1.) --optimiert
-TRAJECTORY_BUILDER_2D.submaps.num_range_data =750 --150 optimiert
+TRAJECTORY_BUILDER_2D.motion_filter.max_distance_meters =10  --optimiert
+TRAJECTORY_BUILDER_2D.motion_filter.max_angle_radians = 0.8 --optimiert
+TRAJECTORY_BUILDER_2D.submaps.num_range_data =60 --optimiert
 TRAJECTORY_BUILDER_2D.num_accumulated_range_data = 1 --optimiert
 TRAJECTORY_BUILDER_2D.min_range = 0.2 --optimiert
 TRAJECTORY_BUILDER_2D.max_range =10 --optimiert
-TRAJECTORY_BUILDER_2D.missing_data_ray_length = 5
-TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.translation_delta_cost_weight = 10
+TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.translation_delta_cost_weight = 9.1
 --optimiert
 TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.rotation_delta_cost_weight =0.2 
 --optimiert
@@ -90,7 +89,7 @@ TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.rotation_delta_cost_wei
 
 MAP_BUILDER.use_trajectory_builder_2d = true 
 
-MAP_BUILDER.num_background_threads = 2 --6 
+MAP_BUILDER.num_background_threads = 6 
 
   
 
@@ -98,19 +97,19 @@ POSE_GRAPH.optimization_problem.huber_scale = 5e2
 
 POSE_GRAPH.optimize_every_n_nodes = 8
 
-POSE_GRAPH.constraint_builder.sampling_ratio = 0.008  --beeinflusst wie viele constraints gefunden werden
+POSE_GRAPH.constraint_builder.sampling_ratio = 0.03 
 
 POSE_GRAPH.optimization_problem.ceres_solver_options.max_num_iterations = 100 
 
 POSE_GRAPH.constraint_builder.min_score =0.4
---0.4 ab wann constraints hinzugefügt werden
+--0.4
 
-POSE_GRAPH.constraint_builder.global_localization_min_score = 0.4 --0.7  zwischen den trajectories
+POSE_GRAPH.constraint_builder.global_localization_min_score = 0.4 --0.7
 
   
 
-POSE_GRAPH.optimization_problem.odometry_rotation_weight = 1e6 --5
-POSE_GRAPH.optimization_problem.odometry_translation_weight = 1e7 --100 before
+POSE_GRAPH.optimization_problem.odometry_rotation_weight = 5
+POSE_GRAPH.optimization_problem.odometry_translation_weight = 100
   
 
 return options 
