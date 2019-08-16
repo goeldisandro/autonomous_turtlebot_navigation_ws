@@ -75,7 +75,7 @@ TRAJECTORY_BUILDER_2D.ceres_scan_matcher.translation_weight = 5000 --0.005 optim
 TRAJECTORY_BUILDER_2D.ceres_scan_matcher.rotation_weight = 1000 --optimiert
 TRAJECTORY_BUILDER_2D.motion_filter.max_time_seconds = 0.1 -- optimiert
 TRAJECTORY_BUILDER_2D.motion_filter.max_distance_meters =1  --optimiert
-TRAJECTORY_BUILDER_2D.motion_filter.max_angle_radians = math.rad(1.) --optimiert
+TRAJECTORY_BUILDER_2D.motion_filter.max_angle_radians = math.rad(0.1) --optimiert
 TRAJECTORY_BUILDER_2D.submaps.num_range_data =750 --150 optimiert
 TRAJECTORY_BUILDER_2D.num_accumulated_range_data = 1 --optimiert
 TRAJECTORY_BUILDER_2D.min_range = 0.2 --optimiert
@@ -94,21 +94,24 @@ MAP_BUILDER.num_background_threads = 6 --6
  
 
 POSE_GRAPH.optimization_problem.huber_scale = 5e2
+--
+POSE_GRAPH.optimize_every_n_nodes = 10 --1000 global SLAM
 
-POSE_GRAPH.optimize_every_n_nodes = 30 --global SLAM
 
-POSE_GRAPH.constraint_builder.sampling_ratio = 0.008  --beeinflusst wie viele constraints gefunden werden
+--0.008
+POSE_GRAPH.constraint_builder.sampling_ratio = 0.3  --0.008 beeinflusst wie viele constraints gefunden werden
 
 POSE_GRAPH.optimization_problem.ceres_solver_options.max_num_iterations = 100  --höherer Wert => stabilere Fahrt niedriger Wert bessere lokalisierung
 
-POSE_GRAPH.constraint_builder.min_score =0.4
+--
+POSE_GRAPH.constraint_builder.min_score =0.75
 --0.4 ab wann constraints hinzugefügt werden
 
 POSE_GRAPH.constraint_builder.global_localization_min_score = 0.4 --0.4  zwischen den trajectories
 
   
-
-POSE_GRAPH.optimization_problem.odometry_rotation_weight = 1e6 --5
+--
+POSE_GRAPH.optimization_problem.odometry_rotation_weight = 0.01 --1e6
 POSE_GRAPH.optimization_problem.odometry_translation_weight = 1e7 --100 before
   
 

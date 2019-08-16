@@ -18,7 +18,7 @@ oscillation_distance:       0.5
 ########################################## global plan navfn ###########################
 
 NavfnROS:
-  allow_unknown:         true 
+  allow_unknown:         false 
   use_dijkstra:          true
   use_quadratic:         true
   use_grid_path:         false
@@ -26,7 +26,7 @@ NavfnROS:
   visualize_potential:   true
   cost_factor:           0.55
   neural_cost:           1 #66
-  lethal_cost:           255 #253  
+  lethal_cost:           200 #255  
   planner_frequency:     5.0 #planner only run when path is blocked or new goal is set
 
 

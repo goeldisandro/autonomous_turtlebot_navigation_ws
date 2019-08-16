@@ -95,7 +95,7 @@ MAP_BUILDER.num_background_threads = 6 --6
 
 POSE_GRAPH.optimization_problem.huber_scale = 5e2
 
-POSE_GRAPH.optimize_every_n_nodes = 30 --global SLAM
+POSE_GRAPH.optimize_every_n_nodes = 10000 --1000 global SLAM
 
 POSE_GRAPH.constraint_builder.sampling_ratio = 0.008  --beeinflusst wie viele constraints gefunden werden
 
@@ -108,7 +108,7 @@ POSE_GRAPH.constraint_builder.global_localization_min_score = 0.4 --0.4  zwische
 
   
 
-POSE_GRAPH.optimization_problem.odometry_rotation_weight = 1e6 --5
+POSE_GRAPH.optimization_problem.odometry_rotation_weight = 1e3 --5
 POSE_GRAPH.optimization_problem.odometry_translation_weight = 1e7 --100 before
   
 

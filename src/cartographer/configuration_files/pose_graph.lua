@@ -23,7 +23,7 @@ POSE_GRAPH = {
     loop_closure_rotation_weight = 1e5,
     log_matches = true,
     fast_correlative_scan_matcher = {
-      linear_search_window = 7.,
+      linear_search_window = 15.,
       angular_search_window = math.rad(30.),
       branch_and_bound_depth = 7,
     },
@@ -79,7 +79,7 @@ POSE_GRAPH = {
     },
   },
   max_num_final_iterations = 200,
-  global_sampling_ratio = 0.003,
+  global_sampling_ratio = 0.0003,
   log_residual_histograms = true,
   global_constraint_search_after_n_seconds = 10.,
 }

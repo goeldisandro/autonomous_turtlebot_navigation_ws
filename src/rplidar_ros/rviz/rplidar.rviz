@@ -6,6 +6,8 @@ Panels:
       Expanded:
         - /Odometry1/Shape1
         - /Submaps1/Submaps1
+        - /MarkerArray1
+        - /MarkerArray1/Namespaces1
       Splitter Ratio: 0.5
     Tree Height: 531
   - Class: rviz/Selection
@@ -52,8 +54,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.482832134
-        Min Value: -0.0146484757
+        Max Value: 0.200000003
+        Min Value: 0.200000003
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -168,7 +170,7 @@ Visualization Manager:
       Radius: 0.0299999993
       Shaft Diameter: 0.100000001
       Shaft Length: 0.100000001
-      Topic: /move_base/TrajectoryPlannerROS/global_plan
+      Topic: /move_base/NavfnROS/plan
       Unreliable: false
       Value: true
     - Alpha: 1
@@ -277,12 +279,23 @@ Visualization Manager:
       Submaps:
         All: true
         Trajectory 0:
-          0.1200: true
-          1.996: true
-          2.396: true
+          0.1500: true
+          1.1500: true
+          10.1500: true
+          11.1110: true
+          12.360: true
+          2.1500: true
+          3.1500: true
+          4.1500: true
+          5.1500: true
+          6.1500: true
+          7.1500: true
+          8.1500: true
+          9.1500: true
           Value: true
         Trajectory 1:
-          0.196: true
+          0.1101: true
+          1.351: true
           Value: true
       Topic: /submap_list
       Tracking frame: base_link
@@ -292,21 +305,34 @@ Visualization Manager:
       Class: rviz/Map
       Color Scheme: map
       Draw Behind: false
-      Enabled: true
+      Enabled: false
       Name: Map
       Topic: /move_base/local_costmap/costmap
       Unreliable: false
       Use Timestamp: false
-      Value: true
+      Value: false
     - Alpha: 0.699999988
       Class: rviz/Map
-      Color Scheme: map
+      Color Scheme: costmap
       Draw Behind: false
-      Enabled: true
+      Enabled: false
       Name: Map
       Topic: /move_base/global_costmap/costmap
       Unreliable: false
       Use Timestamp: false
+      Value: false
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /constraint_list
+      Name: MarkerArray
+      Namespaces:
+        Inter constraints, different trajectories: true
+        Inter constraints, same trajectory: true
+        Inter residuals, different trajectories: true
+        Inter residuals, same trajectory: true
+        Intra constraints: false
+        Intra residuals: true
+      Queue Size: 100
       Value: true
   Enabled: true
   Global Options:
@@ -328,25 +354,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 15.2873077
+      Distance: 22.6197262
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -1.34491014
-        Y: -3.6242063
-        Z: -14.1684875
+        X: 8.36356831
+        Y: -8.45129585
+        Z: 0.292044342
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 1.56979632
+      Pitch: 1.22479618
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.995388031
+      Yaw: 3.46038747
     Saved: ~
 Window Geometry:
   Displays:
