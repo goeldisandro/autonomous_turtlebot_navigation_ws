@@ -29,7 +29,7 @@
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find cartographer_ros)/configuration_files
-          -configuration_basename 00_Kobuki_rp.lua
+          -configuration_basename 00_Kobuki_rp_wide_area.lua
           -load_state_filename $(arg load_state_filename)"
       output="screen">
   </node>

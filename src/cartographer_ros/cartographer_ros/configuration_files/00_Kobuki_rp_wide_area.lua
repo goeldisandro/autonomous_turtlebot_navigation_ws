@@ -16,10 +16,10 @@ options = {
 
   tracking_frame = "base_footprint", 
 
-  published_frame = "base_footprint", 
+  published_frame = "odom", 
 
   odom_frame = "odom", 
-  provide_odom_frame = true,  
+  provide_odom_frame = false,  
 
   publish_frame_projected_to_2d = true,  
 
@@ -64,7 +64,7 @@ options = {
 -- optimierte Werte für RP Lidar, Kobuki Odom, IMU via BBB
   
 -- Trajectory Builder
-TRAJECTORY_BUILDER_2D.use_imu_data=true
+TRAJECTORY_BUILDER_2D.use_imu_data=false
 TRAJECTORY_BUILDER_2D.ceres_scan_matcher.ceres_solver_options.use_nonmonotonic_steps = true 
 TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true
 
@@ -104,7 +104,7 @@ POSE_GRAPH.optimization_problem.ceres_solver_options.max_num_iterations = 100  -
 POSE_GRAPH.constraint_builder.min_score =0.4
 --0.4 ab wann constraints hinzugefügt werden
 
-POSE_GRAPH.constraint_builder.global_localization_min_score = 0.6 --0.4  zwischen den trajectories
+POSE_GRAPH.constraint_builder.global_localization_min_score = 0.6 --0.6  zwischen den trajectories
 
   
 

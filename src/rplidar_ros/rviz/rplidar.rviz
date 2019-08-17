@@ -4,10 +4,11 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
+        - /Path2
         - /Odometry1/Shape1
         - /Submaps1/Submaps1
-        - /MarkerArray1
         - /MarkerArray1/Namespaces1
+        - /PointCloud22
       Splitter Ratio: 0.5
     Tree Height: 531
   - Class: rviz/Selection
@@ -176,7 +177,7 @@ Visualization Manager:
     - Alpha: 1
       Buffer Length: 1
       Class: rviz/Path
-      Color: 25; 255; 0
+      Color: 100; 100; 100
       Enabled: true
       Head Diameter: 0.300000012
       Head Length: 0.200000003
@@ -243,7 +244,7 @@ Visualization Manager:
           Scale: 1
           Value: true
         Value: false
-      Enabled: true
+      Enabled: false
       Keep: 10000
       Name: Odometry
       Position Tolerance: 0.100000001
@@ -259,7 +260,7 @@ Visualization Manager:
         Value: Arrow
       Topic: /odom
       Unreliable: false
-      Value: true
+      Value: false
     - Alpha: 1
       Class: rviz_plugin_tutorials/Imu
       Color: 204; 51; 204
@@ -279,23 +280,7 @@ Visualization Manager:
       Submaps:
         All: true
         Trajectory 0:
-          0.1500: true
-          1.1500: true
-          10.1500: true
-          11.1110: true
-          12.360: true
-          2.1500: true
-          3.1500: true
-          4.1500: true
-          5.1500: true
-          6.1500: true
-          7.1500: true
-          8.1500: true
-          9.1500: true
-          Value: true
-        Trajectory 1:
-          0.1101: true
-          1.351: true
+          0.324: true
           Value: true
       Topic: /submap_list
       Tracking frame: base_link
@@ -305,22 +290,22 @@ Visualization Manager:
       Class: rviz/Map
       Color Scheme: map
       Draw Behind: false
-      Enabled: false
+      Enabled: true
       Name: Map
       Topic: /move_base/local_costmap/costmap
       Unreliable: false
       Use Timestamp: false
-      Value: false
+      Value: true
     - Alpha: 0.699999988
       Class: rviz/Map
       Color Scheme: costmap
       Draw Behind: false
-      Enabled: false
+      Enabled: true
       Name: Map
       Topic: /move_base/global_costmap/costmap
       Unreliable: false
       Use Timestamp: false
-      Value: false
+      Value: true
     - Class: rviz/MarkerArray
       Enabled: true
       Marker Topic: /constraint_list
@@ -333,6 +318,36 @@ Visualization Manager:
         Intra constraints: false
         Intra residuals: true
       Queue Size: 100
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 160; 10; 100
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: true
+      Max Color: 85; 170; 0
+      Max Intensity: 4096
+      Min Color: 255; 85; 0
+      Min Intensity: 0
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.100000001
+      Style: Squares
+      Topic: /scan_matched_points2
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
       Value: true
   Enabled: true
   Global Options:
@@ -354,25 +369,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 22.6197262
+      Distance: 4.05446529
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 8.36356831
-        Y: -8.45129585
-        Z: 0.292044342
+        X: 1.18314505
+        Y: -0.235327318
+        Z: -1.79464769
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 1.22479618
+      Pitch: 1.17479622
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.46038747
+      Yaw: 3.36538744
     Saved: ~
 Window Geometry:
   Displays:

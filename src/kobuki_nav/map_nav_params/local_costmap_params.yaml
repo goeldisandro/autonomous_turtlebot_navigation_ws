@@ -10,4 +10,4 @@ local_costmap:
    rolling_window: true
    
    robot_radius: 0.2
-   footprint_padding: 0.0 #so kann dwa planner recovery behaviour starten
+   footprint_padding: 0.05 #so kann dwa planner recovery behaviour starten
